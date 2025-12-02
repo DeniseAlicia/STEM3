@@ -8,6 +8,7 @@ import cv2
 import numpy as np
 from mediapipe.tasks import python as mp_python
 from mediapipe.tasks.python import vision as mp_vision
+import threading
 
 # --- variables ---
 playerLies = 0
@@ -108,6 +109,7 @@ def main(port):
                     cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 0), 2)
         cv2.putText(frame, "START: play  |  Q: quit", (10, frame.shape[0] - 20),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+      
         
         
         cv2.imshow("RPS with gesture_recognizer.task", frame)
@@ -121,13 +123,14 @@ def main(port):
         # listen for arduino input to start a match
         if (checkForStartButton(ser, frame, computer_text)== True):
             print("Start pressed")
+         
+          
             if current_move in MOVES:
                 player_move = current_move
                 computer_move = np.random.choice(MOVES)
                 winner = decideWinner(player_move, computer_move)
                 
                 computer_text = f"Computer: {computer_move}"
-                cv2.imshow("RPS with gesture_recognizer.task", frame)
                 playerSelfReport(winner, ser, computer_text, frame)
 
 
@@ -203,14 +206,7 @@ def checkForStartButton(ser, frame, computer_text):
         data = ser.readline().decode('utf-8').strip()
         if data == "START":
             start = True
-            if computer_text != "":
-                cv2.putText(frame, computer_text, (145, 200),
-                            cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255, 255, 255), 3)
-                
-                cv2.putText(frame,
-                            "Input if you won, lost or the match ended in a draw",
-                            (25,240),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)          
+                      
 
     return start
 
@@ -219,6 +215,16 @@ def checkForStartButton(ser, frame, computer_text):
 def playerSelfReport(result, ser, computer_text, frame):
     reported = False
     while reported == False:
+        display = frame.copy()
+        cv2.putText(display, computer_text, (145, 200),
+                    cv2.FONT_HERSHEY_SIMPLEX, 1.2, (255, 255, 255), 3)
+        cv2.putText(display,
+                    "Input if you won, lost or the match ended in a draw",
+                    (25, 240),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+        cv2.imshow("RPS with gesture_recognizer.task", display)
+        cv2.waitKey(1)
+        
         if ser.in_waiting > 0:
             global playerLies
             data = ser.readline().decode('utf-8').strip()
