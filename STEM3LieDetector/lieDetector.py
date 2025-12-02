@@ -12,7 +12,7 @@ import threading
 
 # --- variables ---
 playerLies = 0
-rounds = 2
+rounds = 5
 
 BAUD_RATE = 115200
 MODEL_PATH ='gesture_recognizer.task'
