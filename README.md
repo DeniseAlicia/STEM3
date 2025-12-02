@@ -13,6 +13,7 @@ Play rock-paper-scissor against the computer using video image processing.
 - pip install mediapipe
 
 #### Game Instructions
+- Connect the ESP32
 - Start the programme.
 - Make a hand gesture (rock, paper, scissors) clearly visible to the camera.
 - Press the start button to begin a round. The computer will record your gesture and give a randomized response.
