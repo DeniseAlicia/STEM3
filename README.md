@@ -1,16 +1,26 @@
-#### Requirements
-[To Do]
+
 
 # STEM3
 STEM 3 Image Processing and Controllers Module
+
+#### Requirements
+[To Do]
+
+
+#### Game Instructions
+- Start the programme.
+- Make a hand gesture (rock, paper, scissors) clearly visible to the camera.
+- Press the start button to begin a round. The computer will record your gesture and give a randomized response.
+- Once the computer states its move, press the Win, Loss, or Draw button to record your result. 
+- The game ends after five rounds.
+
+![image](STEM3_LieDetector.jpg)
 
 ## Rock, Paper, Scissor! Game
 Play rock-paper-scissor against the computer using video image processing.
 
 ## Lie Detector!
 Confirm and submit the results of the game after a match. Beware! The computer knows when you are lying.
-
-![image](STEM3_LieDetector.jpg)
 
 ## Members
 Denise Franz\
