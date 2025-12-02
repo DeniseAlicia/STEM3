@@ -19,6 +19,8 @@ Play rock-paper-scissor against the computer using video image processing.
 - Once the computer states its move, press the Win, Loss, or Draw button to record your result. 
 - The game ends after five rounds.
 
+The red lamp will light up when it receives an input.
+
 ![image](STEM3_LieDetector.jpg)
 
 ## Lie Detector!
