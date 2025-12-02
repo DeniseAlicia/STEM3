@@ -12,7 +12,7 @@ import threading
 
 # --- variables ---
 playerLies = 0
-rounds = 5
+rounds = 2
 
 BAUD_RATE = 115200
 MODEL_PATH ='gesture_recognizer.task'
@@ -140,7 +140,7 @@ def main(port):
                 print("Computer: ", computer_move)
                 print("Winner:   ", winner)
 
-                rounds -= 1
+                current_round -= 1
 
             else:
                 print("\nNo valid move detected. Show a clear gesture and try again.")
@@ -255,7 +255,7 @@ def gameEnd(cap):
 def playerReliability():
     trust = 100 - (playerLies*100/rounds)
     round(trust, 1)
-    lieDetection = "You to ld the truth " + str(trust) + "% of the time"
+    lieDetection = "You told the truth " + str(trust) + "% of the time"
     print(lieDetection)
 
 # close the game
