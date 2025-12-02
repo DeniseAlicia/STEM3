@@ -8,8 +8,9 @@ Play rock-paper-scissor against the computer using video image processing.
 
 
 #### Requirements
-[To Do]
-
+- python -m venv .venv
+- pip install pyserial
+- pip install mediapipe
 
 #### Game Instructions
 - Start the programme.
