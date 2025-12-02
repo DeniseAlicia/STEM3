@@ -5,4 +5,4 @@ STEM 3 Image Processing and Controllers Module
 Play rock, paper, scissor against the computer using video image processing.
 
 ## Lie Detector!
-Test your truthfullness.
+Test your truthfulness.
