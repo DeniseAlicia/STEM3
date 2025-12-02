@@ -8,7 +8,7 @@ Play rock-paper-scissor against the computer using video image processing.
 Confirm and submit the results of the game after a match. Beware! The computer knows when you are lying.
 
 ## Members
-Denise Franz
-Matej Budimir
-Justus Schultzke
+Denise Franz\
+Matej Budimir\
+Justus Schultzke\
 Mia Reichmann
